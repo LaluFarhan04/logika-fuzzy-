@@ -1,0 +1,24 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(0, 5, 500)
+
+a = 0
+b = 2.5
+c = 5
+
+y = np.zeros_like(x)
+
+y[(x > a) & (x <= b)] = (x[(x > a) & (x <= b)] - a) / (b - a)
+y[(x > b) & (x < c)] = (c - x[(x > b) & (x < c)]) / (c - b)
+y[x == b] = 1
+
+plt.plot(x, y)
+
+plt.title("Fungsi Keanggotaan Bayi / Anak Usia Dini")
+plt.xlabel("Usia (tahun)")
+plt.ylabel("Derajat Keanggotaan")
+plt.grid(True)
+plt.ylim(0, 1.1)
+
+plt.show()
